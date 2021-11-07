@@ -13,12 +13,19 @@
 
 <body>
     <form>
-        <!-- <label for="numberOfPlayers">Number Of Players</label> -->
+        <label for="numberOfPlayers">Number Of Players</label>
         <select name="numberOfPlayers" id="numberOfPlayers">
             <option value="1">1 Player</option>
             <option value="2">2 Players</option>
             <option value="3">3 Players</option>
             <option value="4">4 Players</option>
+        </select>
+        <label for="teeSelect">Select Your Tee</label>
+        <select name="teeSelect" id="teeSelect">
+            <option value="women">Women</option>
+            <option value="men">Men</option>
+            <option value="champion">Champion</option>
+            <option value="pro">Pro</option>
         </select>
         <input type="submit" value="Create Score Card">
     </form>
