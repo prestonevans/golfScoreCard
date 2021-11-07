@@ -4,4 +4,8 @@
   margin: 0;
 }
 
+input[type=number] {
+  width: 100%;
+}
+
 /*# sourceMappingURL=style.css.map */
