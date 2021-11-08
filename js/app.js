@@ -23,6 +23,9 @@ form.addEventListener('submit', (e) => {
 	const teeSelect = document.querySelector('#teeSelect');
 	const teeSelectInput = teeSelect.options[teeSelect.selectedIndex].value;
 
+	// remove form from body
+	document.querySelector('form').remove();
+
 	// creates holes row
 	createHoles();
 
@@ -62,6 +65,14 @@ form.addEventListener('submit', (e) => {
 		}
 	});
 });
+
+// function to fetch data from api
+function getCourseInfo() {
+	const coursePromise = fetch('http://golf-courses-api.herokuapp.com/courses/11819').then((response) =>
+		response.json()
+	);
+	return coursePromise;
+}
 
 //function to create holes row
 function createHoles() {
@@ -139,27 +150,4 @@ function createPlayers(players) {
 		tr.append(playerEl);
 		table.append(tr);
 	}
-}
-
-// function to make players dynamic
-function dynamicPlayers(players) {
-	// for (let i = 0; i < players; i++) {
-	// 	document.querySelectorAll(`.player${i} input`).forEach((input) => {
-	// 		input.addEventListener('change', () => {
-	// 			let total = 0;
-	// 			document.querySelectorAll('input').forEach((input) => {
-	// 				total += Number(input.value);
-	// 			});
-	// 			document.querySelector(`.player${0} span`).innerText = total;
-	// 		});
-	// 	});
-	// }
-}
-
-// function to fetch data from api
-function getCourseInfo() {
-	const coursePromise = fetch('http://golf-courses-api.herokuapp.com/courses/11819').then((response) =>
-		response.json()
-	);
-	return coursePromise;
 }
