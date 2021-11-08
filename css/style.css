@@ -2,10 +2,94 @@
   border: 0;
   padding: 0;
   margin: 0;
+  box-sizing: border-box;
 }
 
-input[type=number] {
+body {
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #264653;
+  min-width: 1730px;
+}
+
+form {
+  color: #e9c46a;
+  font-size: 2rem;
+  display: flex;
+  flex-flow: column;
+  align-items: center;
+  padding: 2rem 6rem;
+  border: thin solid #e9c46a;
+  border-radius: 1em;
+  position: relative;
+}
+form *:not(:last-child) {
+  margin-bottom: 2rem;
+}
+form input {
+  color: #264653;
+  font-size: 1.1rem;
+  position: absolute;
+  bottom: 0;
+  transform: translateY(60%);
+  background-color: #e9c46a;
+  border: none;
+  outline: none;
+  padding: 1em 3em;
+  border-radius: 3rem;
+  cursor: pointer;
+}
+form select {
+  cursor: pointer;
+  outline: none;
+  background-color: #264653;
+  color: #e9c46a;
+  width: 10vw;
+  max-width: 150px;
+  min-width: 10.5ch;
+  font-size: 1rem;
+}
+
+table {
+  font-size: 2rem;
+  color: white;
+  text-align: center;
+  border-collapse: collapse;
+  outline: none;
+}
+table tr:first-child {
+  background-color: white;
+  color: #264653;
+  border-top-left-radius: 3rem;
+}
+table tr td {
+  width: 3ch;
+  border: thin solid white;
+  padding: 0.2em;
+  outline: none;
+}
+table tr td:first-child {
+  background-color: white;
+  color: #264653;
+  max-width: 20ch;
+  min-width: 20ch;
+  white-space: nowrap;
+  overflow: hidden;
+}
+table tr td:nth-child(n+20) {
+  width: 6ch;
+  text-align: center;
+}
+table tr input[type=number] {
+  outline: none;
+  text-align: center;
+  color: white;
+  font-size: 2rem;
   width: 100%;
+  height: 100%;
+  background-color: transparent;
 }
 
 /*# sourceMappingURL=style.css.map */

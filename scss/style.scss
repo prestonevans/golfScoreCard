@@ -1,8 +1,106 @@
+// colors
+$primary: #264653;
+$secondary: #2a9d8f;
+$ternary: #e9c46a;
+
+// table color
+$tableColor: white;
+
+// padding
+$padding: 2rem;
+
+// radius
+$radius: 1em;
+$lrgradius: 3rem;
 * {
 	border: 0;
 	padding: 0;
 	margin: 0;
+	box-sizing: border-box;
 }
-input[type="number"] {
-	width: 100%;
+body {
+	height: 100vh;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	background-color: $primary;
+	min-width: 1730px;
+}
+form {
+	color: $ternary;
+	font-size: 2rem;
+	display: flex;
+	flex-flow: column;
+	align-items: center;
+	padding: $padding 6rem;
+	border: thin solid $ternary;
+	border-radius: $radius;
+	position: relative;
+	*:not(:last-child) {
+		margin-bottom: $padding;
+	}
+	input {
+		color: $primary;
+		font-size: 1.1rem;
+		position: absolute;
+		bottom: 0;
+		transform: translateY(60%);
+		background-color: $ternary;
+		border: none;
+		outline: none;
+		padding: 1em 3em;
+		border-radius: $lrgradius;
+		cursor: pointer;
+	}
+	select {
+		cursor: pointer;
+		outline: none;
+		background-color: $primary;
+		color: $ternary;
+		width: 10vw;
+		max-width: 150px;
+		min-width: 10.5ch;
+		font-size: 1rem;
+	}
+}
+table {
+	font-size: 2rem;
+	color: $tableColor;
+	text-align: center;
+	border-collapse: collapse;
+	outline: none;
+	tr:first-child {
+		background-color: $tableColor;
+		color: $primary;
+		border-top-left-radius: 3rem;
+	}
+	tr {
+		td {
+			width: 3ch;
+			border: thin solid $tableColor;
+			padding: .2em;
+			outline: none;
+		}
+		td:first-child {
+			background-color: $tableColor;
+			color: $primary;
+			max-width: 20ch;
+			min-width: 20ch;
+			white-space: nowrap;
+			overflow: hidden;
+		}
+		td:nth-child(n + 20) {
+			width: 6ch;
+			text-align: center;
+		}
+		input[type="number"] {
+			outline: none;
+			text-align: center;
+			color: $tableColor;
+			font-size: 2rem;
+			width: 100%;
+			height: 100%;
+			background-color: transparent;
+		}
+	}
 }
