@@ -68,7 +68,7 @@ form.addEventListener('submit', (e) => {
 
 // function to fetch data from api
 function getCourseInfo() {
-	const coursePromise = fetch('http://golf-courses-api.herokuapp.com/courses/11819').then((response) =>
+	const coursePromise = fetch('https://golf-courses-api.herokuapp.com/courses/11819').then((response) =>
 		response.json()
 	);
 	return coursePromise;
