@@ -27,14 +27,42 @@ form.addEventListener('submit', (e) => {
 	createHoles();
 
 	// create yards,hcp, and par rows from api
-	// creat players after api rows are created
+	// create players after api rows are created
+	// make players dynamic
 	coursePromise.then((data) => {
+		// assign api data to variable
 		const course = data.data;
+
+		// create yard, hcp, and par rows
 		createCourse(course, teeSelectInput);
+
 		//create player rows
 		createPlayers(numberOfPlayersInput);
+
+		// make players dynamic
+		for (let i = 0; i < numberOfPlayersInput; i++) {
+			document.querySelectorAll(`.player${i} input`).forEach((input) => {
+				input.addEventListener('change', () => {
+					let total = 0;
+					let frontNine = 0;
+					let backNine = 0;
+					document.querySelectorAll(`.player${i} input`).forEach((input, index) => {
+						if (index < 9) {
+							frontNine += Number(input.value);
+						} else {
+							backNine += Number(input.value);
+						}
+						total += Number(input.value);
+					});
+					document.querySelector(`.player${i} .out`).innerText = frontNine;
+					document.querySelector(`.player${i} .in`).innerText = backNine;
+					document.querySelector(`.player${i} .total`).innerText = total;
+				});
+			});
+		}
 	});
 });
+
 //function to create holes row
 function createHoles() {
 	let tr = document.createElement('tr');
@@ -65,6 +93,7 @@ function createHoles() {
 	}
 	table.append(tr);
 }
+
 // function to create yards, hcp, and par rows for table
 function createCourse(course, teeSelectInput) {
 	const yards = document.createElement('tr');
@@ -100,6 +129,7 @@ function createCourse(course, teeSelectInput) {
 	table.append(hcp);
 	table.append(par);
 }
+
 // function to create player rows
 function createPlayers(players) {
 	for (let i = 0; i < players; i++) {
@@ -109,6 +139,21 @@ function createPlayers(players) {
 		tr.append(playerEl);
 		table.append(tr);
 	}
+}
+
+// function to make players dynamic
+function dynamicPlayers(players) {
+	// for (let i = 0; i < players; i++) {
+	// 	document.querySelectorAll(`.player${i} input`).forEach((input) => {
+	// 		input.addEventListener('change', () => {
+	// 			let total = 0;
+	// 			document.querySelectorAll('input').forEach((input) => {
+	// 				total += Number(input.value);
+	// 			});
+	// 			document.querySelector(`.player${0} span`).innerText = total;
+	// 		});
+	// 	});
+	// }
 }
 
 // function to fetch data from api
