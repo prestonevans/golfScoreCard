@@ -65,6 +65,17 @@ form.addEventListener('submit', (e) => {
 				});
 			});
 		}
+
+		// note that player names are contenteditable
+		for (let i = 0; i < numberOfPlayersInput; i++) {
+			document.querySelectorAll(`.player${i} :first-child`).forEach((name) => {
+				name.addEventListener('blur', () => {
+					if (name.childElementCount !== 0) {
+						name.children[0].remove();
+					}
+				});
+			});
+		}
 	});
 });
 
@@ -112,7 +123,6 @@ function createCourse(course, teeSelectInput) {
 	const yards = document.createElement('tr');
 	const hcp = document.createElement('tr');
 	const par = document.createElement('tr');
-	console.log(course);
 	for (let i = 0; i < 18; i++) {
 		let td = document.createElement('td');
 		if (i === 0) {
