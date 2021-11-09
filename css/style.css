@@ -58,6 +58,7 @@ table {
   text-align: center;
   border-collapse: collapse;
   outline: none;
+  transition: 0.7s ease-in;
 }
 table tr:first-child {
   background-color: white;
@@ -90,6 +91,10 @@ table tr input[type=number] {
   width: 100%;
   height: 100%;
   background-color: transparent;
+}
+
+.hidden {
+  transform: scale(2) translateY(-50vh);
 }
 
 /*# sourceMappingURL=style.css.map */

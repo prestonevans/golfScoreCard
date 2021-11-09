@@ -15,6 +15,8 @@ form.addEventListener('submit', (e) => {
 	// prevent form from default action
 	e.preventDefault();
 
+	table.classList.remove('hidden');
+
 	//get the number of players selected from user
 	const numberOfPlayers = document.querySelector('#numberOfPlayers');
 	const numberOfPlayersInput = numberOfPlayers.options[numberOfPlayers.selectedIndex].value;

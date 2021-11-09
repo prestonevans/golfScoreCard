@@ -69,6 +69,7 @@ table {
 	text-align: center;
 	border-collapse: collapse;
 	outline: none;
+	transition: .7s ease-in;
 	tr:first-child {
 		background-color: $tableColor;
 		color: $primary;
@@ -103,4 +104,7 @@ table {
 			background-color: transparent;
 		}
 	}
+}
+.hidden {
+	transform: scale(2) translateY(-50vh);
 }
