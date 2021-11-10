@@ -76,6 +76,15 @@ form.addEventListener('submit', (e) => {
 				});
 			});
 		}
+
+		// fix enter from breaking table
+		document.querySelectorAll('[contenteditable]').forEach((input) => {
+			input.addEventListener('keypress', (evt) => {
+				if (evt.keyCode === 13) {
+					evt.preventDefault();
+				}
+			});
+		});
 	});
 });
 
